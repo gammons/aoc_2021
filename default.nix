@@ -1,5 +1,17 @@
-{ pkgs ? import <nixpkgs> {} }:
-  pkgs.mkShell {
-    # nativeBuildInputs is usually what you want -- tools you need to run
-    nativeBuildInputs = [ pkgs.buildPackages.go ];
+{ pkgs ? import <nixpkgs> { } }:
+
+with pkgs;
+
+mkShell {
+  buildInputs = [
+    go
+    gotools
+    gopls
+    go-outline
+    gocode
+    gopkgs
+    gocode-gomod
+    godef
+    golint
+  ];
 }
